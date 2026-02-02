@@ -1,12 +1,11 @@
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
 
 /* Màu chủ đạo giống giao diện mẫu */
 :root {
-    --bm-brown: #5b2626;
-    --bm-brown-dark: #441b1b;
-    --bm-light-bg: #f7f7f9;
+    --bm-brown: orange;
+    --bm-brown-dark: orange;
+    --bm-light-bg: white;
 }
 
 .bg-brown {
@@ -34,19 +33,136 @@
 }
 
 .btn-outline-brown:hover {
-    color: #fff !important;
+    color: white !important;
     background-color: var(--bm-brown) !important;
     border-color: var(--bm-brown) !important;
 }
 
 /* Card sản phẩm trên trang home */
 .product-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .product-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+    min-width: 200px;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000 !important;
+}
+
+.dropdown-menu.show {
+    display: block !important;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: 0.5rem 1rem;
+    color: var(--bm-brown);
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+    background-color: #f8f9fa;
+    color: var(--bm-brown-dark);
+}
+
+.dropdown-toggle::after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.5em;
+    vertical-align: 0.255em;
+    border-top: 0.3em solid currentColor;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.dropdown-toggle:hover::after {
+    color: var(--bm-brown-dark);
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex !important;
+    position: relative;
+    z-index: 1000 !important;
+    min-height: auto !important;
+}
+
+.navbar-expand-lg {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+}
+
+.navbar-expand-lg .navbar-nav {
+    flex-direction: row !important;
+    margin-left: auto !important;
+}
+
+.navbar-light {
+    background-color: #f8f9fa !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.nav-link {
+    color: var(--bm-brown) !important;
+    padding: 0.5rem 1rem !important;
+    text-decoration: none !important;
+    display: block !important;
+}
+
+.nav-link:hover {
+    color: var(--bm-brown-dark) !important;
+}
+
+.navbar-nav .nav-link {
+    transition: color 0.3s ease !important;
+}
+
+.navbar-nav .nav-item {
+    display: list-item !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--bm-brown-dark) !important;
+}
+
+/* Navbar dropdown toggle styling */
+.navbar-nav .dropdown-toggle {
+    position: relative;
+}
+
+.navbar-nav .dropdown-toggle::after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    border-top: 0.3em solid currentColor;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.navbar-nav .dropdown-toggle:hover,
+.navbar-nav .dropdown-toggle:focus {
+    color: var(--bm-brown-dark) !important;
 }
 
 /* Offcanvas danh mục rộng hơn một chút trên desktop */
