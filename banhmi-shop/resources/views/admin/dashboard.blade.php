@@ -29,6 +29,15 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-3">
+                <div class="card text-white bg-info">
+                    <div class="card-body">
+                        <h5>Tổng người dùng</h5>
+                        <h2>{{ $totalUsers }}</h2>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="row">
@@ -81,6 +90,9 @@
                             </a>
                             <a href="{{ route('admin.breads.create') }}" class="btn btn-outline-info">
                                 ➕ Thêm bánh mì mới
+                            </a>
+                            <a href="{{ route('admin.users.index') }}" class="btn btn-outline-warning">
+                                👥 Quản lý người dùng
                             </a>
                         </div>
                     </div>
