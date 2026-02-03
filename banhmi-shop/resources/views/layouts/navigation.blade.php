@@ -1,8 +1,8 @@
 {{-- Thanh top nhỏ với hotline --}}
 <div class="bg-brown text-white py-1">
     <div class="container d-flex justify-content-between align-items-center small">
-        <span>Bánh Mì Shop - Hotline: <strong>0844825565</strong></span>
-        <span>🥖 Bánh Mì Shop</span>
+        <span>BanmyShop - Hotline: <strong>0844825565</strong></span>
+        <span>🥖 BanmyShop</span>
     </div>
 </div>
 
@@ -12,7 +12,7 @@
         <div class="d-flex flex-wrap align-items-center gap-3">
             {{-- Logo --}}
             <a class="navbar-brand fw-bold text-brown mb-0 me-3" href="{{ route('home') }}">
-                Bánh Mì Shop
+                <img src="{{ asset('images/breads/logo192.png') }}" alt="BanmyShop Logo" class="img-fluid" style="height: 100px;">
             </a>
 
             {{-- Thanh tìm kiếm (ngay bên cạnh / dưới logo) --}}
@@ -34,7 +34,10 @@
             <div class="d-flex align-items-center gap-2 ms-auto">
                 @guest
                     <a class="btn btn-outline-brown btn-sm text-nowrap" href="{{ route('login') }}">
-                        👤 Đăng nhập / Đăng ký
+                        👤 Đăng nhập
+                    </a>
+                    <a class="btn btn-outline-brown btn-sm  text-nowrap" href="{{ route('register') }}">
+                        📝 Đăng ký
                     </a>
                 @else
                     <div class="dropdown">
@@ -59,7 +62,7 @@
                     </div>
                 @endguest
 
-                <a class="btn btn-brown btn-sm text-white position-relative text-nowrap" href="{{ route('cart.index') }}">
+                <a class="btn btn-outline-brown btn-sm position-relative text-nowrap" href="{{ route('cart.index') }}">
                     🛒 Giỏ hàng
                     @if(session('cart') && count(session('cart')) > 0)
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -72,32 +75,39 @@
     </div>
 </header>
 
-{{-- Thanh menu: Trang chủ, Bánh mì, ... (trên mobile có thể gập bằng nút 3 gạch) --}}
+{{-- Thanh menu: Trang chủ, Bánh mì, ... (luôn hiển thị, không nằm trong nút 3 gạch) --}}
 <div class="bg-light border-bottom">
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light py-2 px-0">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Mở menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav gap-2 gap-lg-4 small">
-                    <li class="nav-item">
-                        <a class="nav-link text-brown" href="{{ route('home') }}">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-brown" href="{{ route('home') }}#breads">Bánh mì</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-brown" href="#">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-brown" href="#">Tin tức &amp; Khuyến mại</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-brown" href="#">Liên hệ</a>
-                    </li>
+        <div class="d-flex align-items-center justify-content-start gap-4 py-2">
+            <a class="text-brown text-decoration-none fw-500" href="{{ route('home') }}">Trang chủ</a>
+            
+            {{-- Bánh ngọt và Bánh mỳ với dropdown --}}
+            <div class="dropdown">
+                <a class="text-brown text-decoration-none fw-500 dropdown-toggle" href="#" id="dropdownBanh" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Bánh ngọt và Bánh mỳ
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownBanh">
+                    <li><a class="dropdown-item" href="{{ route('home') }}#breads">Tất cả bánh</a></li>
+                    <li><a class="dropdown-item" href="#">Bánh ngọt</a></li>
+                    <li><a class="dropdown-item" href="#">Bánh mỳ</a></li>
                 </ul>
             </div>
-        </nav>
+            
+            <a class="text-brown text-decoration-none fw-500" href="#">Gallery</a>
+            <a class="text-brown text-decoration-none fw-500" href="#">Tin tức &amp; Khuyến mại</a>
+            
+            {{-- Liên hệ với dropdown --}}
+            <div class="dropdown">
+                <a class="text-brown text-decoration-none fw-500 dropdown-toggle" href="#" id="dropdownLienhe" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Liên hệ
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownLienhe">
+                    <li><a class="dropdown-item" href="#">Liên hệ chúng tôi</a></li>
+                    <li><a class="dropdown-item" href="#">Hotline: 0844825565</a></li>
+                </ul>
+            </div>
+            
+            <a class="text-brown text-decoration-none fw-500" href="#">More...</a>
+        </div>
     </div>
 </div>
